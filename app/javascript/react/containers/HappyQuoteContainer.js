@@ -11,7 +11,7 @@ class HappyQuoteContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('https://quotes.rest/quote/search.json?category=happiness', {
+    fetch('https://quotes.rest/quote/search.json?category=happy', {
       headers: { 'X-TheySaidSo-Api-Secret':'4_VSex0_jq_Nu5GN94HewAeF' },
       cache: 'no-store'
     })
