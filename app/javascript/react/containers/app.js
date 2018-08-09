@@ -1,15 +1,13 @@
 import React from 'react'
 import { Route, IndexRoute, Router, browserHistory } from 'react-router'
 
-import HappyQuoteContainer from './HappyQuoteContainer'
+import QuoteContainer from './QuoteContainer'
 
 const App = (props) => {
   return (
     <div>
       <Router history={browserHistory}>
-        <Route path='/'>
-          <Route path='/happy_quotes' component={HappyQuoteContainer}/>
-        </Route>
+        <Route path='/' component={QuoteContainer}/>
       </Router>
     </div>
   )
