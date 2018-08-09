@@ -1,3 +1,0 @@
-class HappyQuotesController < ApplicationController
-
-end
