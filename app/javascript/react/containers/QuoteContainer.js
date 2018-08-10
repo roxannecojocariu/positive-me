@@ -6,7 +6,8 @@ class QuoteContainer extends Component {
     super(props)
     this.state = {
       body: '',
-      author: ''
+      author: '',
+      htmlMood: ''
     }
     this.handleOnClick = this.handleOnClick.bind(this)
   }
@@ -28,7 +29,8 @@ class QuoteContainer extends Component {
     .then(response => {
       this.setState({
         body: response.contents.quote,
-        author: response.contents.author
+        author: response.contents.author,
+        htmlMood: mood
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -39,10 +41,12 @@ class QuoteContainer extends Component {
       <div>
         <button onClick={this.handleOnClick}>Sad</button>
         <button onClick={this.handleOnClick}>Motivation</button>
-        <button onClick={this.handleOnClick}>Inspiration</button>
+        <button onClick={this.handleOnClick}>Inspiration</button><br />
 
-      {this.state.body}<br />
-      {this.state.author}
+        <div className={this.state.htmlMood}>
+          {this.state.body}<br />
+          {this.state.author}
+        </div>
       </div>
     )
   }
