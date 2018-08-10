@@ -124,8 +124,8 @@ $warning-color: #f08a24;
 $info-color: #a0d3e8;
 
 // We use these to control various global styles
-$body-bg: #D6D8FF;
-$body-font-color: #38b3e0;
+$body-bg: #D1B4F7;
+$body-font-color: white;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
@@ -269,9 +269,9 @@ $body-font-color: #38b3e0;
 
 // We use these to style anchors
 // $anchor-text-decoration: none;
-// $anchor-text-decoration-hover: none;
+$anchor-text-decoration-hover: white;
 $anchor-font-color: white;
-// $anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%);
+$anchor-font-color-hover: white;
 
 // We use these to style the <hr> element
 // $hr-border-width: 1px;
@@ -464,11 +464,11 @@ $anchor-font-color: white;
 $button-function-factor: -20%;
 
 // We use these to control button border styles.
-// $button-border-width: 0;
-// $button-border-style: solid;
-$button-bg-color: #9C89B8;
-// $button-bg-hover: #38B3E0;
-// $button-border-color: $button-bg-hover;
+$button-border-width: 2px;
+$button-border-style: solid;
+$button-bg-color: #AFB3FF;
+$button-bg-hover: #ACD7EC;
+$button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
 // $secondary-button-border-color: $secondary-button-bg-hover;
 // $success-button-bg-hover: scale-color($success-color, $lightness: $button-function-factor);
