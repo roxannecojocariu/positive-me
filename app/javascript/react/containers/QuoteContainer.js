@@ -29,7 +29,7 @@ class QuoteContainer extends Component {
     .then(response => {
       this.setState({
         body: response.contents.quote,
-        author: response.contents.author,
+        author: `- ${response.contents.author}`,
         htmlMood: mood
       })
     })

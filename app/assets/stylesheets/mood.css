@@ -1,5 +1,12 @@
 .Sad{
-  background-color: red;
+  background-color: #ACD7EC;
+  color: white;
+  margin: 10% 20% 0% 20%;
+  padding: 10px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #AFB3FF;
+  font-style: italic;
 }
 
 .Motivation{
@@ -8,4 +15,15 @@
 
 .Inspiration{
   background-color: white;
+}
+
+button, .button{
+  font-size: 1.94rem;
+  padding: 1rem 17.2rem 1.0625rem 2rem;
+  color: white;
+}
+
+button:hover, button:focus, .button:hover, .button:focus {
+  color: white;
+  text-align: center;
 }
