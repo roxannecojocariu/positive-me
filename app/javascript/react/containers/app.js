@@ -1,13 +1,13 @@
 import React from 'react'
 import { Route, IndexRoute, Router, browserHistory } from 'react-router'
 
-import QuoteContainer from './QuoteContainer'
+import FetchedQuoteContainer from './FetchedQuoteContainer'
 
 const App = (props) => {
   return (
     <div>
       <Router history={browserHistory}>
-        <Route path='/' component={QuoteContainer}/>
+        <Route path='/' component={FetchedQuoteContainer}/>
       </Router>
     </div>
   )
