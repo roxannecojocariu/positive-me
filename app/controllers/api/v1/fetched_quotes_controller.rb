@@ -1,7 +1,6 @@
 require 'net/http'
 
-class Api::V1::FetchedQuotesController < ApplicationController
-  protect_from_forgery unless: -> { request.format.json? }
+class Api::V1::FetchedQuotesController < ApiController
 
   def index
     uri = URI("http://quotes.rest/quote/search.json?category=#{params[:category]}")

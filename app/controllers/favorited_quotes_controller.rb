@@ -1,0 +1,2 @@
+class FavoritedQuotesController < ApplicationController
+end
