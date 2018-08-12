@@ -10,8 +10,6 @@ class FetchedQuoteContainer extends Component {
       htmlMood: '',
       yes: '',
       no: '',
-      errors: [],
-      successStatus: '',
     }
     this.handleOnClick = this.handleOnClick.bind(this)
     this.favoriteQuote = this.favoriteQuote.bind(this)
@@ -19,7 +17,9 @@ class FetchedQuoteContainer extends Component {
 
   handleOnClick(event) {
     let mood = event.target.innerHTML
-    fetch(`/api/v1/fetched_quotes?category=${mood}`)
+    fetch(`/api/v1/fetched_quotes?category=${mood}`,{
+      credentials: 'same-origin'
+    })
     .then(response => {
       if(response.ok) {
         return response;
@@ -43,6 +43,7 @@ class FetchedQuoteContainer extends Component {
     }
 
     favoriteQuote(event) {
+      debugger
       let formPayload = {
         body: this.state.body,
         author: this.state.author,
@@ -61,19 +62,13 @@ class FetchedQuoteContainer extends Component {
       } else {
         let errorMessage = `${response.status} (${response.statusText})`,
           error = new Error(errorMessage);
+          if(response.status == 401){
+            alert("You must be signed in to favorite a quote.")
+          }
         throw(error);
       }
     })
     .then(response => response.json())
-    .then(body => {
-      debugger
-      if (body.errors) {
-      this.setState({
-        errors: body.error,
-        successStatus: body.successStatus
-      })
-    }
-    })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
@@ -83,18 +78,15 @@ class FetchedQuoteContainer extends Component {
         <button onClick={this.handleOnClick}>Sad</button>
         <button onClick={this.handleOnClick}>Motivation</button>
         <button onClick={this.handleOnClick}>Inspiration</button><br />
-
+        {this.state.catchError}
         <div className={this.state.htmlMood}>
           {this.state.body}<br />
           {this.state.author}
         </div>
-        <div className="favorite">
-        <button onClick={this.favoriteQuote}>
-        yes</button>
+        <div className="favorite"onClick={this.favoriteQuote}>
+          {this.state.yes}
         </div>
         <div className="dislike">
-        {this.state.errors}
-        {this.state.successStatus}
           {this.state.no}
         </div>
       </div>

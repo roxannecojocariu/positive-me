@@ -1,4 +1,5 @@
 class Api::V1::QuotesController < ApiController
+before_action :authenticate_user!, except: [:index]
 
   def index
     quotes = Quote.all
@@ -11,12 +12,11 @@ class Api::V1::QuotesController < ApiController
     new_favorite = FavoritedQuote.new(user: user, quote: quote)
 
     if new_favorite.save
-      render json: { quote: quote, errors: [], successStatus: "Added Successfully!" }
+      render json: { quote: quote }
     else
-      render json: { errors: new_favorite.errors, successStatus: "" }
+      render json: { errors: new_favorite.errors }, status: 422
     end
   end
-
 
   private
 
