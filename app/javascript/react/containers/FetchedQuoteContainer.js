@@ -7,14 +7,18 @@ class FetchedQuoteContainer extends Component {
     this.state = {
       body: '',
       author: '',
-      htmlMood: ''
+      htmlMood: '',
+      yes: '',
+      no: '',
+      errors: [],
+      successStatus: '',
     }
     this.handleOnClick = this.handleOnClick.bind(this)
+    this.favoriteQuote = this.favoriteQuote.bind(this)
   }
 
   handleOnClick(event) {
     let mood = event.target.innerHTML
-
     fetch(`/api/v1/fetched_quotes?category=${mood}`)
     .then(response => {
       if(response.ok) {
@@ -26,15 +30,52 @@ class FetchedQuoteContainer extends Component {
       }
     })
     .then(response => response.json())
-    .then(response => {
+    .then(body => {
       this.setState({
-        body: response.contents.quote,
-        author: `- ${response.contents.author}`,
-        htmlMood: mood
+        body: body.contents.quote,
+        author: `- ${body.contents.author}`,
+        htmlMood: mood,
+        yes: "yes",
+        no: "no"
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
+
+    favoriteQuote(event) {
+      let formPayload = {
+        body: this.state.body,
+        author: this.state.author,
+        mood: this.state.htmlMood,
+      }
+      fetch(`/api/v1/quotes.json`,
+      {
+        credentials: 'same-origin',
+        method: 'POST',
+        body: JSON.stringify(formPayload),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(response => {
+      if(response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      debugger
+      if (body.errors) {
+      this.setState({
+        errors: body.error,
+        successStatus: body.successStatus
+      })
+    }
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
 
   render(){
     return(
@@ -46,6 +87,15 @@ class FetchedQuoteContainer extends Component {
         <div className={this.state.htmlMood}>
           {this.state.body}<br />
           {this.state.author}
+        </div>
+        <div className="favorite">
+        <button onClick={this.favoriteQuote}>
+        yes</button>
+        </div>
+        <div className="dislike">
+        {this.state.errors}
+        {this.state.successStatus}
+          {this.state.no}
         </div>
       </div>
     )
