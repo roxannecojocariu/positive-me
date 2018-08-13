@@ -1,7 +1,10 @@
+.moods {
+  margin: 5% 0% 5% 0%;
+}
+
 .happy{
   background-color: #ACD7EC;
   color: white;
-  margin: 5% 20% 0% 20%;
   padding: 50px;
   border-width: 3px;
   border-style: solid;
@@ -13,7 +16,6 @@
 .motivational{
   background-color: #ACD7EC;
   color: white;
-  margin: 5% 20% 0% 20%;
   padding: 50px;
   border-width: 3px;
   border-style: solid;
@@ -25,7 +27,6 @@
 .inspirational{
   background-color: #ACD7EC;
   color: white;
-  margin: 5% 20% 0% 20%;
   padding: 50px;
   border-width: 3px;
   border-style: solid;

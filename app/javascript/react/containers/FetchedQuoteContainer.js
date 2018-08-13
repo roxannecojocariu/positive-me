@@ -90,18 +90,18 @@ class FetchedQuoteContainer extends Component {
     let hiddenDiv;
 
     if (this.state.clicked) {
-      hiddenDiv = <div>
-        <div className={this.state.htmlMood}>
+      hiddenDiv = <div className="row">
+        <div className={`${this.state.htmlMood} moods column`}>
           {this.state.body}<br />
           {this.state.author}
         </div>
-        <div className="feedback">
+        <div className="feedback column small">
           Did you like this quote?
         </div>
-        <div className="favorite box" onClick={this.favoriteQuote}>
+        <div className="favorite box column small-6" onClick={this.favoriteQuote}>
           {this.state.yes}
         </div>
-        <div className="dislike box" onClick={this.handleOnClick}>
+        <div className="dislike box column small-6" onClick={this.handleOnClick}>
           Generate new {this.state.htmlMood} quote.
         </div>
       </div>
