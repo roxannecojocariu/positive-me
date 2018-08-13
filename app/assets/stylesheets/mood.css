@@ -1,0 +1,47 @@
+.moods {
+  margin: 5% 0% 5% 0%;
+}
+
+.happy{
+  background-color: #ACD7EC;
+  color: white;
+  padding: 50px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #AFB3FF;
+  font-size: 30px;
+  font-style: italic;
+}
+
+.motivational{
+  background-color: #ACD7EC;
+  color: white;
+  padding: 50px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #AFB3FF;
+  font-style: italic;
+  font-size: 30px;
+}
+
+.inspirational{
+  background-color: #ACD7EC;
+  color: white;
+  padding: 50px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #AFB3FF;
+  font-size: 30px;
+  font-style: italic;
+}
+
+button, .button{
+  font-size: 1.94rem;
+  padding: 1rem 20.55rem 1.0625rem 1.2rem;
+  color: white;
+}
+
+button:hover, button:focus, .button:hover, .button:focus {
+  color: white;
+  text-align: center;
+}

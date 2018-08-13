@@ -1,18 +1,26 @@
-require 'net/http'
-
-class Api::V1::QuotesController < ApplicationController
-  protect_from_forgery unless: -> { request.format.json? }
+class Api::V1::QuotesController < ApiController
+before_action :authenticate_user!, except: [:index]
 
   def index
-    uri = URI("http://quotes.rest/quote/search.json?category=#{params[:category]}")
+    quotes = Quote.all
+    render json: { quotes: quotes }
+  end
 
-    Net::HTTP.start(uri.host, uri.port) do |http|
-      request = Net::HTTP::Get.new uri
+  def create
+    quote = Quote.create!(quote_params)
+    user = current_user if user_signed_in?
+    new_favorite = FavoritedQuote.new(user: user, quote: quote)
 
-      request.add_field 'X-TheySaidSo-Api-Secret', ENV["THEY_SAID_SO_API_KEY"]
-      response = http.request request # Net::HTTPResponse object
-
-      render json: response.body
+    if new_favorite.save
+      render json: { quote: quote }
+    else
+      render json: { errors: new_favorite.errors }, status: 422
     end
+  end
+
+  private
+
+  def quote_params
+    params.require(:quote).permit(:body, :author, :mood)
   end
 end
