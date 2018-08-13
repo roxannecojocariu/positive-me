@@ -11,20 +11,30 @@ class QuoteContainer extends Component {
   }
 
   componentDidMount() {
-    fetch(`/api/v1/quotes`)
+    fetch(`/api/v1/quotes`, {
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
     .then(response => {
       if (response.ok) {
         return response;
       } else {
         let errorMessage = `${response.status} (${response.statusText})`,
           error = new Error(errorMessage);
+          if(response.status == 401){
+            alert("You must be signed in to favorite a quote.")
+            browserHistory.push('/')
+          }
         throw(error);
       }
     })
     .then(response => response.json())
-    .then(response => {
+    .then(body => {
       this.setState({
-        quotes: response.quotes
+        quotes: body.quotes
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));

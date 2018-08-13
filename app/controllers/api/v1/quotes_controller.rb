@@ -1,8 +1,8 @@
 class Api::V1::QuotesController < ApiController
-before_action :authenticate_user!, except: [:index]
+before_action :authenticate_user!
 
   def index
-    quotes = Quote.all
+    quotes = current_user.quotes
     render json: { quotes: quotes }
   end
 
@@ -23,4 +23,5 @@ before_action :authenticate_user!, except: [:index]
   def quote_params
     params.require(:quote).permit(:body, :author, :mood)
   end
+
 end
