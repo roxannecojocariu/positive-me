@@ -1,39 +1,42 @@
-.Sad{
-  background-color: #A4D8BE;
-  color: white;
-  margin: 10% 20% 0% 20%;
-  padding: 20px;
-  border-width: 3px;
-  border-style: solid;
-  border-color: #AFB3FF;
-  font-style: italic;
-}
-
-.Motivation{
-  background-color: #E39695;
-  color: white;
-  margin: 10% 20% 0% 20%;
-  padding: 20px;
-  border-width: 3px;
-  border-style: solid;
-  border-color: #E4B1AB;
-  font-style: italic;
-}
-
-.Inspiration{
+.happy{
   background-color: #ACD7EC;
   color: white;
-  margin: 10% 20% 0% 20%;
-  padding: 20px;
+  margin: 5% 20% 0% 20%;
+  padding: 50px;
   border-width: 3px;
   border-style: solid;
   border-color: #AFB3FF;
+  font-size: 30px;
+  font-style: italic;
+}
+
+.motivational{
+  background-color: #ACD7EC;
+  color: white;
+  margin: 5% 20% 0% 20%;
+  padding: 50px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #AFB3FF;
+  font-style: italic;
+  font-size: 30px;
+}
+
+.inspirational{
+  background-color: #ACD7EC;
+  color: white;
+  margin: 5% 20% 0% 20%;
+  padding: 50px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #AFB3FF;
+  font-size: 30px;
   font-style: italic;
 }
 
 button, .button{
   font-size: 1.94rem;
-  padding: 1rem 17.2rem 1.0625rem 2rem;
+  padding: 1rem 20.55rem 1.0625rem 1.2rem;
   color: white;
 }
 

@@ -1,0 +1,40 @@
+.box {
+    box-sizing: none;
+    width: 35%;
+    border: 2px solid #ACD7EC;
+    float: left;
+    padding: 20px;
+    background-color: #AFB3FF;
+    margin: 0px 20px 50px;
+    font-family: fantasy;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.favorite {
+  color: white;
+}
+
+.favorite:hover{
+  background-color: #bfa3ff;
+}
+
+.dislike {
+  color: white;
+}
+
+.dislike:hover{
+  background-color: #bfa3ff;
+}
+
+.feedback {
+  background-color: #AFB3FF;
+  border: 2px solid #ACD7EC;
+  color: white;
+  margin: 50px 370px 30px 20px;
+  padding: 20px;
+  font-family: fantasy;
+  font-size: 25px;
+  text-align: center;
+}

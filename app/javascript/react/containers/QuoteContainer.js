@@ -8,7 +8,6 @@ class QuoteContainer extends Component {
     this.state = {
       quotes: []
     }
-
   }
 
   componentDidMount() {
