@@ -6,8 +6,14 @@ class QuoteContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      quotes: []
+      quotes: [],
+      htmlMood: ''
     }
+    this.handleDonClick = this.handleDonClick.bind(this)
+  }
+
+  handleDonClick(event){
+    this.setState({ htmlMood: event.target.innerHTML })
   }
 
   componentDidMount() {
@@ -42,22 +48,27 @@ class QuoteContainer extends Component {
 
   render(){
     let quotes;
-
     if(this.state.quotes.length != 0){
       quotes = this.state.quotes.map((quote) => {
-        return(
-          <QuoteTile
-            key={quote.id}
-            mood={quote.mood}
-            body={quote.body}
-            author={quote.author}
-          />
-        )
+        if(quote.mood == this.state.htmlMood.toLowerCase()){
+          return(
+            <QuoteTile
+              key={quote.id}
+              mood={quote.mood}
+              body={quote.body}
+              author={quote.author}
+            />
+          )
+        }
       })
     }
 
     return(
       <div>
+      <div className="quotes-title">Click a Category to See Your Saved Quotes:</div>
+      <button onClick={this.handleDonClick}>Happy</button>
+      <button onClick={this.handleDonClick}>Motivational</button>
+      <button onClick={this.handleDonClick}>Inspirational</button><br />
       {quotes}
       </div>
 
