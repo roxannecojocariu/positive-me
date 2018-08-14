@@ -81,6 +81,7 @@ class FetchedQuoteContainer extends Component {
     .then(response => {
       if(response.json()) {
         alert("Saved successfully!")
+        browserHistory.push('/quotes')
       }
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
@@ -117,7 +118,6 @@ class FetchedQuoteContainer extends Component {
         <button onClick={this.handleOnClick}>Sad</button>
         <button onClick={this.handleOnClick}>Unmotivated</button>
         <button onClick={this.handleOnClick}>Uninspired</button><br />
-
         {hiddenDiv}
       </div>
     )

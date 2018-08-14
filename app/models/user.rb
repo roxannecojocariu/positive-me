@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :favorited_quotes
   has_many :quotes, through: :favorited_quotes
 
   # Include default devise modules. Others available are:

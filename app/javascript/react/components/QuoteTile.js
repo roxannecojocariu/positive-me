@@ -3,8 +3,7 @@ import { browserHistory, Link } from 'react-router';
 
 const QuoteTile = (props) => {
   return(
-    <div className="quote-tile">
-      {props.mood}
+    <div className= "quote-tile row moods">
       {props.body}
       {props.author}
     </div>

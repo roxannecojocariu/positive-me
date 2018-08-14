@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :fetched_quotes
       resources :quotes
-      resources :favorited_quotes
     end
   end
 

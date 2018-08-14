@@ -1,13 +1,13 @@
 .box {
     box-sizing: none;
-    width: 45%;
+    width: 48%;
     border: 2px solid #ACD7EC;
     float: left;
     padding: 20px;
     background-color: #AFB3FF;
     margin: 20px 0px 50px;
-    font-family: fantasy;
-    font-size: 30px;
+    font-family: Comfortaa;
+    font-size: 25px;
     text-align: center;
     cursor: pointer;
 }
@@ -33,7 +33,7 @@
   border: 2px solid #ACD7EC;
   color: white;
   padding: 20px;
-  font-family: fantasy;
+  font-family: Comfortaa;
   font-size: 25px;
   text-align: center;
 }
