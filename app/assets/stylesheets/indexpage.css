@@ -1,9 +1,13 @@
 .intro{
   font-size: 40px;
-  margin-bottom: 25px;
-  font-family: cursive;
+  margin: 25px 20px 25px;
+  font-family: Quicksand;
 }
 
 .top-bar .name h1 a:hover{
   background-color: #ACD7EC;
+}
+
+h1{
+  font-family: Comfortaa;
 }
