@@ -4,7 +4,7 @@
     border: 2px solid #ACD7EC;
     float: left;
     padding: 20px;
-    background-color: #AFB3FF;
+    background-color: #4595EC;
     margin: 20px 0px 50px;
     font-family: Comfortaa;
     font-size: 25px;
@@ -13,25 +13,25 @@
 }
 
 .favorite {
-  color: white;
+  color: #225BA0;
 }
 
 .favorite:hover{
-  background-color: #bfa3ff;
+  background-color: #ACD7EC;
 }
 
 .dislike {
-  color: white;
+  color: #225BA0;
 }
 
 .dislike:hover{
-  background-color: #bfa3ff;
+  background-color: #ACD7EC;
 }
 
 .feedback {
-  background-color: #AFB3FF;
+  background-color: #4595EC;
   border: 2px solid #ACD7EC;
-  color: white;
+  color: #225BA0;
   padding: 20px;
   font-family: Comfortaa;
   font-size: 25px;
