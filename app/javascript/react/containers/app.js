@@ -3,6 +3,7 @@ import { Route, IndexRoute, Router, browserHistory } from 'react-router'
 
 import FetchedQuoteContainer from './FetchedQuoteContainer'
 import QuoteContainer from './QuoteContainer'
+import QuoteFormContainer from './QuoteFormContainer'
 
 const App = (props) => {
   return (
@@ -10,6 +11,7 @@ const App = (props) => {
       <Router history={browserHistory}>
         <Route path='/' component={FetchedQuoteContainer} />
         <Route path='/quotes' component={QuoteContainer} />
+        <Route path='/quotes/new' component={QuoteFormContainer} />
       </Router>
     </div>
   )

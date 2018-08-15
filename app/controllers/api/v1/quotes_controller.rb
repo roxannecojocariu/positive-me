@@ -8,14 +8,23 @@ before_action :authenticate_user!
 
   def create
     quote = Quote.create!(quote_params)
-    user = current_user if user_signed_in?
-    new_favorite = FavoritedQuote.new(user: user, quote: quote)
+    if user_signed_in?
+      user = current_user
+      new_quote = FavoritedQuote.new(user: user, quote: quote)
+    else
+      new_quote = Quote.new(body: params["body"], author: params["author"], mood: params["mood"] )
+    end
 
-    if new_favorite.save
+    if new_quote.save
       render json: { quote: quote }
     else
-      render json: { errors: new_favorite.errors }, status: 422
+      render json: { errors: new_quote.errors }, status: 422
     end
+  end
+
+  def update
+    user = current_user if user_signed_in?
+    quote = Quote.find(params)
   end
 
   private
@@ -23,5 +32,4 @@ before_action :authenticate_user!
   def quote_params
     params.require(:quote).permit(:body, :author, :mood)
   end
-
 end

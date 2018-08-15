@@ -1,18 +1,27 @@
 import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
+
 import QuoteTile from '../components/QuoteTile'
+import QuoteFormContainer from './QuoteFormContainer'
 
 class QuoteContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
       quotes: [],
-      htmlMood: ''
+      htmlMood: '',
+      clicked: 'false'
     }
-    this.handleDonClick = this.handleDonClick.bind(this)
+    this.handledonClick = this.handledonClick.bind(this)
+    this.addNewQuote = this.addNewQuote.bind(this)
+    this.addQuote = this.addQuote.bind(this)
   }
 
-  handleDonClick(event){
+  addQuote(event){
+    this.setState({ clicked: 'true' })
+  }
+
+  handledonClick(event){
     this.setState({ htmlMood: event.target.innerHTML })
   }
 
@@ -46,7 +55,48 @@ class QuoteContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  addNewQuote(formPayload) {
+    fetch(`/api/v1/quotes.json`,
+    {
+      credentials: 'same-origin',
+      method: 'POST',
+      body: JSON.stringify(formPayload),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => {
+    if(response.ok) {
+      return response;
+    } else {
+      let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        if(response.status == 422){
+          alert("You must include a body and a mood.")
+        }
+      throw(error);
+    }
+  })
+  .then(responseData => {
+    if(responseData.json()) {
+      this.setState({ quotes: [...this.state.quotes, responseData]})
+      alert("Saved successfully!")
+      browserHistory.push('/quotes')
+    }
+  })
+  .catch(error => console.error(`Error in fetch: ${error.message}`))
+}
+
   render(){
+    // let hiddenDiv;
+    // if(this.state.clicked) {
+    //   hiddenDiv = <div>
+    //   <QuoteFormContainer
+    //     addNewQuote={addNewQuote}
+    //   />
+    //   </div>
+    // }
+
+    let addNewQuote = (formPayload) => this.addNewQuote(formPayload)
+
     let quotes;
     if(this.state.quotes.length != 0){
       quotes = this.state.quotes.map((quote) => {
@@ -66,12 +116,12 @@ class QuoteContainer extends Component {
     return(
       <div>
       <div className="quotes-title">Click a Category to See Your Saved Quotes:</div>
-      <button onClick={this.handleDonClick}>Happy</button>
-      <button onClick={this.handleDonClick}>Motivational</button>
-      <button onClick={this.handleDonClick}>Inspirational</button><br />
+      <button onClick={this.handledonClick}>Happy</button>
+      <button onClick={this.handledonClick}>Motivational</button>
+      <button onClick={this.handledonClick}>Inspirational</button><br />
+      <button onClick={this.addQuote}>Add Your Own Quote</button><br />
       {quotes}
       </div>
-
     )
   }
 }

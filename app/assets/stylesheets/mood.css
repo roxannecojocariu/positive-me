@@ -1,7 +1,7 @@
 .moods {
   margin: 5% 0% 5% 0%;
-  background-color: #ACD7EC;
-  color: white;
+  background-color: #CAE7FC;
+  color: #225BA0;
   padding: 50px;
   border-width: 3px;
   border-style: solid;
@@ -11,28 +11,25 @@
 }
 
 .happy{
-  background-color: #ACD7EC;
-  color: white;
+  background-color: #CAE7FC;
 }
 
 .motivational{
-  background-color: #ACD7EC;
-  color: white;
+  background-color: #CAE7FC;
 }
 
 .inspirational{
-  background-color: #ACD7EC;
-  color: white;
+  background-color: #CAE7FC;
 }
 
 button, .button{
   font-size: 1.94rem;
   padding: 1rem 20.55rem 1.0625rem 1.2rem;
-  color: white;
+  color: #225BA0;
   margin-left: 20px;
 }
 
 button:hover, button:focus, .button:hover, .button:focus {
-  color: white;
+  color: #225BA0;
   text-align: center;
 }
