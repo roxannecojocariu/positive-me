@@ -9,10 +9,16 @@ class QuoteContainer extends Component {
     super(props)
     this.state = {
       quotes: [],
-      htmlMood: ''
+      htmlMood: '',
+      clicked: 'false'
     }
     this.handledonClick = this.handledonClick.bind(this)
     this.addNewQuote = this.addNewQuote.bind(this)
+    this.addQuote = this.addQuote.bind(this)
+  }
+
+  addQuote(event){
+    this.setState({ clicked: 'true' })
   }
 
   handledonClick(event){
@@ -80,6 +86,15 @@ class QuoteContainer extends Component {
 }
 
   render(){
+    // let hiddenDiv;
+    // if(this.state.clicked) {
+    //   hiddenDiv = <div>
+    //   <QuoteFormContainer
+    //     addNewQuote={addNewQuote}
+    //   />
+    //   </div>
+    // }
+
     let addNewQuote = (formPayload) => this.addNewQuote(formPayload)
 
     let quotes;
@@ -104,12 +119,9 @@ class QuoteContainer extends Component {
       <button onClick={this.handledonClick}>Happy</button>
       <button onClick={this.handledonClick}>Motivational</button>
       <button onClick={this.handledonClick}>Inspirational</button><br />
-      <QuoteFormContainer
-        addNewQuote={addNewQuote}
-      />
+      <button onClick={this.addQuote}>Add Your Own Quote</button><br />
       {quotes}
       </div>
-
     )
   }
 }

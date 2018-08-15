@@ -44,7 +44,7 @@ class QuoteFormContainer extends Component {
 
   render(){
     return(
-      <form className="callout" onSubmit={this.handleQuoteSubmit}>
+      <form className="quote-form" onSubmit={this.handleQuoteSubmit}>
         <InputField
           content={this.state.body}
           label="Body"
@@ -64,8 +64,8 @@ class QuoteFormContainer extends Component {
           handleChange={this.handleChange}
         />
 
-        <button onClick={this.handleClearQuote}>Clear</button>
         <input className="button" type="submit" value="Submit" />
+        <button onClick={this.handleClearQuote}>Clear</button>
       </form>
     )
   }
