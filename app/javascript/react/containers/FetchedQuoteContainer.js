@@ -55,9 +55,11 @@ class FetchedQuoteContainer extends Component {
 
     favoriteQuote(event) {
       let formPayload = {
-        body: this.state.body,
-        author: this.state.author,
-        mood: this.state.htmlMood,
+        quote: {
+          body: this.state.body,
+          author: this.state.author,
+          mood: this.state.htmlMood
+        }
       }
       fetch(`/api/v1/quotes.json`,
       {

@@ -7,16 +7,20 @@ before_action :authenticate_user!
   end
 
   def create
-    quote = Quote.create!(quote_params)
-    if user_signed_in?
-      user = current_user
-      new_quote = FavoritedQuote.new(user: user, quote: quote)
+    if params["new_quote"]
+      new_quote = Quote.find_or_initialize_by(quote_params)
+      new_quote.creator = current_user
     else
-      new_quote = Quote.new(body: params["body"], author: params["author"], mood: params["mood"] )
+      new_quote = Quote.find_or_initialize_by(quote_params)
+      binding.pry
     end
 
+    # new_quote = Quote.new(quote_params)
+    # new_quote.creator = current_user
+
     if new_quote.save
-      render json: { quote: quote }
+      FavoritedQuote.create!(user: current_user, quote: new_quote)
+      render json: { quote: new_quote }
     else
       render json: { errors: new_quote.errors }, status: 422
     end

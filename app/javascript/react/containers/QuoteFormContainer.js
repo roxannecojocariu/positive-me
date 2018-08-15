@@ -34,9 +34,12 @@ class QuoteFormContainer extends Component {
   handleQuoteSubmit(event) {
     event.preventDefault()
     let formPayload = {
-      body: this.state.body,
-      author: this.state.author,
-      mood: this.state.mood
+      new_quote: true,
+      quote: {
+        body: this.state.body,
+        author: this.state.author,
+        mood: this.state.mood
+      }
     }
     this.props.addNewQuote(formPayload)
     this.handleClearQuote(event)
