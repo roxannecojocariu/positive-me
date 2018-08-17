@@ -37,7 +37,7 @@ before_action :authenticate_user!
     if quote.update(quote_params)
       render json: {quote: quote}
     else
-    render json: {errors: review.errors}, status: 422
+    render json: {errors: quote.errors}, status: 422
     end
   end
 

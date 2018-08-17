@@ -27,7 +27,7 @@ class QuoteFormContainer extends Component {
   }
 
   handleClearQuote(event){
-    event.preventDefault()
+    event.preventDefault();
     this.setState({
       body: '',
       author: '',
@@ -36,7 +36,7 @@ class QuoteFormContainer extends Component {
   }
 
   handleQuoteSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
     let formPayload = {
       new_quote: true,
       quote: {
@@ -46,7 +46,6 @@ class QuoteFormContainer extends Component {
       }
     }
     this.addNewQuote(formPayload)
-    this.handleClearQuote(event)
   }
 
   addNewQuote(formPayload) {
@@ -111,8 +110,8 @@ class QuoteFormContainer extends Component {
             handleChange={this.handleChange}
           />
 
-          <button type="submit" value="Submit">Submit</button>
-          <button className="clear-button" onClick={this.handleClearQuote}>Clear</button>
+          <button className="submit-button" type="submit" value="Submit">Submit</button>
+          <button onClick={this.handleClearQuote}>Clear</button>
         </form>
       </div>
     )
