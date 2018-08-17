@@ -9,18 +9,14 @@ class QuoteContainer extends Component {
     this.state = {
       quotes: [],
       htmlMood: '',
-      clicked: 'false'
     }
     this.handledonClick = this.handledonClick.bind(this)
-    this.addQuote = this.addQuote.bind(this)
-  }
-
-  addQuote(event){
-    this.setState({ clicked: 'true' })
   }
 
   handledonClick(event){
-    this.setState({ htmlMood: event.target.innerHTML })
+    this.setState({
+      htmlMood: event.target.innerHTML,
+    })
   }
 
   componentDidMount() {
@@ -54,17 +50,19 @@ class QuoteContainer extends Component {
   }
 
   render(){
-
     let quotes;
-    if(this.state.quotes.length != 0){
+    if (this.state.quotes.length !== 0){
       quotes = this.state.quotes.map((quote) => {
-        if(quote.mood == this.state.htmlMood.toLowerCase()){
+        if(quote.mood === this.state.htmlMood.toLowerCase()){
+
           return(
             <QuoteTile
               key={quote.id}
+              id={quote.id}
               mood={quote.mood}
               body={quote.body}
               author={quote.author}
+              creator_id={quote.creator_id}
             />
           )
         }
@@ -77,14 +75,10 @@ class QuoteContainer extends Component {
         <button className="happy-category" onClick={this.handledonClick}>Happy</button>
         <button className="motivational-category" onClick={this.handledonClick}>Motivational</button>
         <button className="inspirational-category" onClick={this.handledonClick}>Inspirational</button>
-        <a href={`/quotes/new`}><button className="add-quote-button" onClick={this.addQuote}>Add A Quote</button></a><br />
+        <a href={`/quotes/new`}><button className="add-quote-button">Add A Quote</button></a><br />
         {quotes}
       </div>
     )
   }
 }
 export default QuoteContainer
-
-// <QuoteFormContainer
-// addNewQuote={addNewQuote}
-// />
