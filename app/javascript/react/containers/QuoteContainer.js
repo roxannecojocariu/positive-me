@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
 
 import QuoteTile from '../components/QuoteTile'
-import QuoteFormContainer from './QuoteFormContainer'
 
 class QuoteContainer extends Component {
   constructor(props) {
@@ -13,7 +12,6 @@ class QuoteContainer extends Component {
       clicked: 'false'
     }
     this.handledonClick = this.handledonClick.bind(this)
-    this.addNewQuote = this.addNewQuote.bind(this)
     this.addQuote = this.addQuote.bind(this)
   }
 
@@ -55,47 +53,7 @@ class QuoteContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-  addNewQuote(formPayload) {
-    fetch(`/api/v1/quotes.json`,
-    {
-      credentials: 'same-origin',
-      method: 'POST',
-      body: JSON.stringify(formPayload),
-      headers: { 'Content-Type': 'application/json' }
-    })
-    .then(response => {
-    if(response.ok) {
-      return response;
-    } else {
-      let errorMessage = `${response.status} (${response.statusText})`,
-        error = new Error(errorMessage);
-        if(response.status == 422){
-          alert("You must include a body and a mood.")
-        }
-      throw(error);
-    }
-  })
-  .then(responseData => {
-    if(responseData.json()) {
-      this.setState({ quotes: [...this.state.quotes, responseData]})
-      alert("Saved successfully!")
-      browserHistory.push('/quotes')
-    }
-  })
-  .catch(error => console.error(`Error in fetch: ${error.message}`))
-}
-
   render(){
-    // let hiddenDiv;
-    // if(this.state.clicked) {
-    //   hiddenDiv = <div>
-    //   <QuoteFormContainer
-    //     addNewQuote={addNewQuote}
-    //   />
-    //   </div>
-    // }
-
-    let addNewQuote = (formPayload) => this.addNewQuote(formPayload)
 
     let quotes;
     if(this.state.quotes.length != 0){
@@ -116,13 +74,17 @@ class QuoteContainer extends Component {
     return(
       <div>
       <div className="quotes-title">Click a Category to See Your Saved Quotes:</div>
-      <button onClick={this.handledonClick}>Happy</button>
-      <button onClick={this.handledonClick}>Motivational</button>
-      <button onClick={this.handledonClick}>Inspirational</button><br />
-      <button onClick={this.addQuote}>Add Your Own Quote</button><br />
-      {quotes}
+        <button className="happy-category" onClick={this.handledonClick}>Happy</button>
+        <button className="motivational-category" onClick={this.handledonClick}>Motivational</button>
+        <button className="inspirational-category" onClick={this.handledonClick}>Inspirational</button>
+        <a href={`/quotes/new`}><button className="add-quote-button" onClick={this.addQuote}>Add A Quote</button></a><br />
+        {quotes}
       </div>
     )
   }
 }
 export default QuoteContainer
+
+// <QuoteFormContainer
+// addNewQuote={addNewQuote}
+// />

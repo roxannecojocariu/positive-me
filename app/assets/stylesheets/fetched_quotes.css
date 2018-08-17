@@ -1,0 +1,82 @@
+.quote-moods {
+  margin: 5% 0% 5% 0%;
+  background-color: #CAE7FC;
+  color: #225BA0;
+  padding: 50px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #AFB3FF;
+  font-size: 30px;
+  font-style: italic;
+}
+
+.happy{
+  background-color: #CAE7FC;
+}
+
+.motivational{
+  background-color: #CAE7FC;
+}
+
+.inspirational{
+  background-color: #CAE7FC;
+}
+
+/* button, .button{
+  font-size: 1.94rem;
+  padding: 1rem 20.55rem 1.0625rem 1.2rem;
+  color: #225BA0;
+  margin-left: 20px;
+}
+
+button:hover, button:focus, .button:hover, .button:focus {
+  color: #225BA0;
+  text-align: center;
+} */
+
+/* .sad{
+  padding: 1rem 20.55rem 1.0625rem 1.2rem;
+
+} */
+.sad{
+  font-size: 1.94rem;
+  padding: 1rem 6rem 1.0625rem 6rem;
+  color: #225BA0;
+  margin-left: 20px;
+}
+
+.sad:hover{
+  color: #225BA0;
+}
+
+.unmotivated{
+  font-size: 1.94rem;
+  padding: 1rem 2rem 1.0625rem 2rem;
+  color: #225BA0;
+  margin-left: 20px;
+}
+
+.unmotivated:hover{
+  color: #225BA0;
+}
+
+.uninspired{
+  font-size: 1.94rem;
+  padding: 1rem 4rem 1.0625rem 4rem;
+  color: #225BA0;
+  margin-left: 20px;
+}
+
+.uninspired:hover{
+  color: #225BA0;
+}
+
+.button-link{
+  font-size: 1.94rem;
+  color: #225BA0;
+  margin-left: 20px;
+}
+
+.button-link:hover{
+  color: #225BA0;
+}
