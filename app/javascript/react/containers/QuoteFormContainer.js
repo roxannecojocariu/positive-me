@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
 
 import InputField from '../components/InputField'
+import BodyTile from '../components/BodyTile'
 import MoodDropdown from '../components/MoodDropdown'
-import QuoteContainer from './QuoteContainer'
 
 class QuoteFormContainer extends Component {
   constructor(props) {
@@ -41,7 +41,7 @@ class QuoteFormContainer extends Component {
       new_quote: true,
       quote: {
         body: this.state.body,
-        author: this.state.author,
+        author: `- ${this.state.author}`,
         mood: this.state.mood
       }
     }
@@ -92,7 +92,7 @@ class QuoteFormContainer extends Component {
         </div>
 
         <form className="quote-form" onSubmit={this.handleQuoteSubmit}>
-          <InputField
+          <BodyTile
             content={this.state.body}
             label="Body"
             name="body"
