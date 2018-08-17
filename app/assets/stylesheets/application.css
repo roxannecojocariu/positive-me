@@ -23,4 +23,5 @@
 
 body{
   background-image: url("https://i.imgur.com/nu3MHMp.png");
+  background-attachment: fixed;
 }

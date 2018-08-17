@@ -55,9 +55,11 @@ class FetchedQuoteContainer extends Component {
 
     favoriteQuote(event) {
       let formPayload = {
-        body: this.state.body,
-        author: this.state.author,
-        mood: this.state.htmlMood,
+        quote: {
+          body: this.state.body,
+          author: this.state.author,
+          mood: this.state.htmlMood
+        }
       }
       fetch(`/api/v1/quotes.json`,
       {
@@ -92,7 +94,7 @@ class FetchedQuoteContainer extends Component {
 
     if (this.state.clicked) {
       hiddenDiv = <div className="row">
-        <div className={`${this.state.htmlMood} moods column`}>
+        <div className={`${this.state.htmlMood} quote-moods column`}>
           {this.state.body}<br />
           {this.state.author}
         </div>
@@ -115,9 +117,11 @@ class FetchedQuoteContainer extends Component {
           How are you feeling today?
         </div>
 
-        <button onClick={this.handleOnClick}>Sad</button>
-        <button onClick={this.handleOnClick}>Unmotivated</button>
-        <button onClick={this.handleOnClick}>Uninspired</button><br />
+        <button className="sad" onClick={this.handleOnClick}>Sad</button>
+        <button className="unmotivated" onClick={this.handleOnClick}>Unmotivated</button>
+        <button className="uninspired" onClick={this.handleOnClick}>Uninspired</button>
+        <a href={`/quotes`}><button className="button-link"  onClick={this.addQuote}>View Saved Quotes</button><br /></a>
+
         {hiddenDiv}
       </div>
     )

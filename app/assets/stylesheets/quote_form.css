@@ -1,0 +1,45 @@
+.quote-form{
+  background-color: #bfa3ff;
+  margin: auto;
+  width: 50%;
+  color: white;
+  padding: 20px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #AFB3FF;
+  font-size: 30px;
+  font-family: Quicksand;
+}
+
+.quote-form-title{
+  font-size: 40px;
+  margin: 25px 20px 25px;
+  font-family: Quicksand;
+}
+
+label{
+  font-size: 20px;
+  color: #225BA0;
+}
+
+input[type="text"]{
+  height: 3.3125rem;
+}
+
+.quote-form button{
+  margin-top: 2%;
+}
+
+.submit-button{
+  float: right;
+}
+
+a.edit-quote-button{
+  float: right;
+  color: #225BA0;
+  font-style: normal;
+}
+
+a.edit-quote-button:hover{
+  color: white;
+}
