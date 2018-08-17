@@ -21,7 +21,6 @@ class QuoteFormEditContainer extends Component {
   }
 
   handleChange(event) {
-    debugger
     let newState = this.state
     newState[event.target.name] = event.target.value
     this.setState(newState)
@@ -52,6 +51,9 @@ class QuoteFormEditContainer extends Component {
       } else {
         let errorMessage = `${response.status} (${response.statusText})`,
           error = new Error(errorMessage);
+          if(response.status == 422){
+            alert("You must include a body and a mood.")
+          }
         throw(error);
       }
     })
@@ -117,7 +119,7 @@ componentDidMount() {
           handleChange={this.handleChange}
         />
 
-        <input className="button" type="submit" value="Submit" />
+        <button className="submit-button" type="submit" value="Submit">Submit</button>
         <button onClick={this.handleClearQuote}>Clear</button>
       </form>
     )

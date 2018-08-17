@@ -15,7 +15,7 @@ const QuoteTile = (props) => {
     <div className= "user-quote-moods row">
       {props.body}<br/>
       {props.author}
-      <div>
+      <div className="edit-quote-button">
         {editButton}
       </div>
     </div>
