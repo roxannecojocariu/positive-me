@@ -33,3 +33,13 @@ input[type="text"]{
 .clear-button{
   float: right;
 }
+
+a.edit-quote-button{
+  float: right;
+  color: #225BA0;
+  font-style: normal;
+}
+
+a.edit-quote-button:hover{
+  color: white;
+}

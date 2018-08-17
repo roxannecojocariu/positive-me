@@ -8,7 +8,7 @@ class QuoteContainer extends Component {
     super(props)
     this.state = {
       quotes: [],
-      htmlMood: '',
+      htmlMood: ''
     }
     this.handledonClick = this.handledonClick.bind(this)
   }
