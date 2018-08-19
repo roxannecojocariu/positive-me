@@ -2,16 +2,18 @@
   font-size: 40px;
   margin: 25px 20px 25px;
   font-family: Quicksand;
+  color: white;
+  text-shadow: 1px 5px 4px #000000;
 }
 
 .user-quote-moods {
   margin-top: 5%;
-  background-color: #CAE7FC;
-  color: #225BA0;
+  background-color: #aabbcc;
+  color: #003355;
   padding: 50px;
   border-width: 3px;
   border-style: solid;
-  border-color: #AFB3FF;
+  border-color: #ACD7EC;
   font-size: 30px;
   font-style: italic;
 }
@@ -19,43 +21,49 @@
 .happy-category{
   font-size: 1.94rem;
   padding: 1rem 6rem 1.0625rem 6rem;
-  color: #225BA0;
+  color: #ffeedd;
   margin-left: 20px;
 }
 
 .happy-category:hover{
   color: #225BA0;
+  box-shadow: 8px 9px 2px #11354cb3;
 }
 
 .motivational-category{
   font-size: 1.94rem;
   padding: 1rem 3rem 1.0625rem 3rem;
-  color: #225BA0;
+  color: #ffeedd;
   margin-left: 20px;
 }
 
 .motivational-category:hover{
   color: #225BA0;
+  box-shadow: 8px 9px 2px #11354cb3;
 }
 
 .inspirational-category{
   font-size: 1.94rem;
   padding: 1rem 3rem 1.0625rem 3rem;
-  color: #225BA0;
+  color: #ffeedd;
   margin-left: 20px;
 }
 
 .inspirational-category:hover{
   color: #225BA0;
+  box-shadow: 8px 9px 2px #11354cb3;
 }
 
 .add-quote-button{
   font-size: 1.94rem;
   padding: 1rem 3rem 1.0625rem 3rem;
-  color: #225BA0;
+  color: #ffeedd;
   margin-left: 20px;
+  background-color: #665577;
 }
 
 .add-quote-button:hover{
   color: #225BA0;
+  box-shadow: 8px 9px 2px #11354cb3;
+  background-color: #8888aa;
 }

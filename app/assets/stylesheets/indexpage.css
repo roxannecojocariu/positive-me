@@ -2,12 +2,18 @@
   font-size: 40px;
   margin: 25px 20px 25px;
   font-family: Quicksand;
+  color: white;
+  text-shadow: 1px 5px 4px #000000;
 }
 
 .top-bar .name h1 a:hover{
-  background-color: #ACD7EC;
+  background-color: #aabbcc;
 }
 
 h1{
   font-family: Comfortaa;
+}
+
+button:focus{
+  color: #225BA0;
 }
