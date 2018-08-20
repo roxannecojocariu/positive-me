@@ -45,7 +45,7 @@ class FetchedQuoteContainer extends Component {
         body: body.contents.quote,
         author: `- ${body.contents.author}`,
         htmlMood: mood,
-        yes: "Favorite it.",
+        yes: "Favorite it",
         no: "no",
         clicked: true
       })
@@ -105,7 +105,7 @@ class FetchedQuoteContainer extends Component {
           {this.state.yes}
         </div>
         <div className="dislike box column small-6" onClick={this.handleOnClick}>
-          Generate new {this.state.htmlMood} quote.
+          Generate new {this.state.htmlMood} quote
         </div>
       </div>
     }

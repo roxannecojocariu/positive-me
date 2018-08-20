@@ -10,7 +10,6 @@ const QuoteTile = (props) => {
     editButton = null
   }
 
-
   return(
     <div className= "user-quote-moods row">
       {props.body}<br/>

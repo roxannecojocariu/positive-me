@@ -466,8 +466,8 @@ $button-function-factor: -20%;
 // We use these to control button border styles.
 $button-border-width: 2px;
 $button-border-style: solid;
-$button-bg-color: #4595EC;
-$button-bg-hover: #ACD7EC;
+$button-bg-color: #4477aa;
+$button-bg-hover: #aabbcc;
 $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
 // $secondary-button-border-color: $secondary-button-bg-hover;
@@ -901,7 +901,7 @@ $button-border-color: $button-bg-hover;
 // $off-canvas-overlay-transition: background 300ms ease;
 // $off-canvas-overlay-cursor: pointer;
 // $off-canvas-overlay-box-shadow: -4px 0 4px rgba($black, .5), 4px 0 4px rgba($black, .5);
-// $off-canvas-overlay-background: rgba($white, .2);
+// $off-canvas-overlay-background: rgba(white, 20);
 // $off-canvas-overlay-background-hover: rgba($white, .05);
 
 // Transition Variables
@@ -1403,7 +1403,7 @@ $button-border-color: $button-bg-hover;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #af6ec3;
+$topbar-bg-color: #2d69a5;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1423,7 +1423,7 @@ $topbar-title-font-size: rem-calc(40);
 $topbar-link-font-size: rem-calc(30);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
-$topbar-link-bg-hover: #ACD7EC;
+$topbar-link-bg-hover: #aabbcc;
 $topbar-link-bg-color-hover: white;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);

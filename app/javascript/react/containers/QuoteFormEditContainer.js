@@ -99,29 +99,34 @@ componentDidMount() {
   render(){
 
     return(
-      <form className="quote-form" onSubmit={this.handleUpdate}>
-        <InputField
-          content={this.state.body}
-          label="Body"
-          name="body"
-          handleChange={this.handleChange}
-        />
-        <InputField
-          content={this.state.author}
-          label="Author"
-          name="author"
-          handleChange={this.handleChange}
-        />
-        <MoodDropdown
-          content={this.state.mood}
-          label="Mood"
-          name="mood"
-          handleChange={this.handleChange}
-        />
+      <div>
+        <div className="quote-form-title">
+          Edit Your Quote:
+        </div>
+        <form className="quote-form" onSubmit={this.handleUpdate}>
+          <InputField
+            content={this.state.body}
+            label="Body"
+            name="body"
+            handleChange={this.handleChange}
+          />
+          <InputField
+            content={this.state.author}
+            label="Author"
+            name="author"
+            handleChange={this.handleChange}
+          />
+          <MoodDropdown
+            content={this.state.mood}
+            label="Mood"
+            name="mood"
+            handleChange={this.handleChange}
+          />
 
-        <button className="submit-button" type="submit" value="Submit">Submit</button>
-        <button onClick={this.handleClearQuote}>Clear</button>
-      </form>
+          <button className="submit-button" type="submit" value="Submit">Submit</button>
+          <button onClick={this.handleClearQuote}>Clear</button>
+        </form>
+      </div>
     )
   }
 }

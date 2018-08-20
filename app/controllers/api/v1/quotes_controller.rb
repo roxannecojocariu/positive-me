@@ -27,7 +27,6 @@ before_action :authenticate_user!
   end
 
   def edit
-    binding.pry
     render json: { quote: Quote.find(params[:id]),
     errors: '' }
   end
